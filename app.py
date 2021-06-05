@@ -20,7 +20,6 @@ def index():
     ip_address = request.remote_addr
     return render_template("index.html", ipa = ip_address)
 
-
 @app.route('/assessment', methods=["GET", "POST"])
 def assessment():
     if request.method == "POST":

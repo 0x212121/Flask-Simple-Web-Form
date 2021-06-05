@@ -22,8 +22,8 @@ def result():
     cur = mysql.connection.cursor()
     cur.execute(""" INSERT INTO results
     (fullname, hostname, badge, use_mobile, sharing_file, use_cloud, use_powerapps,
-    use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, 
-    %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
+    use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, result) VALUES 
+    (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
     use_powerapps, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, results))
     mysql.connection.commit()
 

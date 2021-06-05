@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <!-- Sebelum memulai assessment silahkan masukkan nama dan nomor PC yang anda gunakan -->
+                    <div class="wrapper">
+                        <div class="wrapper2">
+                            <div class="col" style="text-align: center;">
+                                <label for="title"><h1>Assessment Office 365</h1></label>
+                            </div>
+                            {% if use_officex == "dupe" %}
+                                <p>Hostname PC yang anda masukkan sudah ada di database.</p>
+                            {% else %}
+                                {% set thanks =  'Terima kasih telah berpartisipasi untuk mengisi assessment ini. Jaga
+                                kesehatan dan tetap semangat' %}
+                                <p>{{ thanks }}</p>
+                            {% endif %}
+                            <!-- {% if use_officex == "Tidak direkomendasikan" %}
+                                <p>{{ thanks }} Anda <b>tidak direkomendasikan</b> untuk menggunakan Microsoft Office 365.</p>
+                            {% elif use_officex == "Direkomendasikan" %}
+                                <p>{{ thanks }} Anda <b>direkomendasikan</b> untuk menggunakan Microsoft Office 365.</p>
+                            {% elif use_officex == "dupe" %}
+                                <p>Hostname PC yang anda masukkan sudah ada di database.</p>
+                            {% else %}
+                                <p>{{ thanks }} PC anda <b>tidak memenuhi persyaratan</b> untuk menggunakan Microsoft Office 365.</p>
+                            {% endif %} -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

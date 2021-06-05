@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Form</title>
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/ajax/jquery.min.js"></script>
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Sebelum memulai assessment silahkan masukkan nama dan nomor PC yang anda gunakan -->
+                    <div class="wrapper">
+                        <div class="wrapper2">
+                        <form action="/result" method="POST">
+                            <div class="col" style="text-align: center;">
+                                <label for="title"><h1>Assessment Office 365</h1></label>
+                            </div>
+                            <div class="col">
+                                <label for="name">Nama</label><input id="name" name="name" type="text" class="form-control" readonly>
+                                <label for="badge">Badge Number</label><input id="badge" name="badge" type="text" class="form-control" readonly>
+                                <label for="hostname">Hostname PC</label><input id="host" name="hostname" type="text" class="form-control" readonly>
+                                <label for="type-pc">Tipe PC</label><input name="type-pc" id="type-pc" type="text" class="form-control" readonly>
+                                <script>
+                                    document.getElementById('name').value="{{name}}";
+                                    document.getElementById('badge').value="{{badge}}";
+                                    document.getElementById('host').value="{{hostname}}";
+                                    document.getElementById('type-pc').value="{{type_pc}}";
+                                </script>
+                            </div>
+                            <hr class="mb-3">
+                            <div class="col">
+                                <label for="komputer">Seberapa sering anda menggunakan aplikasi Office di mobile phone?</label>
+                                <select class="custom-select" name="use_mobile" id="use_mobile">
+                                    <option value="Sering">Sering</option>
+                                    <option value="Kadang">Kadang-kadang</option>
+                                    <option value="Jarang">Jarang</option>
+                                    <option value="Tidak Pernah">Tidak Pernah</option>
+                                </select>
+                                <!-- <input type="hidden" id="hdn_test" name="hdn_test" /> -->
+                            </div>
+                            <div class="col">
+                                <label for="komputer">Seberapa sering Anda melakukan <i>sharing</i>/kolaborasi dalam editing file dengan rekan kerja Anda?</label>
+                                <select class="custom-select" name="sharing_file" id="sharing_file">
+                                    <option value="Sering">Sering</option>
+                                    <option value="Kadang">Kadang-kadang</option>
+                                    <option value="Jarang">Jarang</option>
+                                    <option value="Tidak Pernah">Tidak Pernah</option>
+                                </select>
+                            </div>
+                            <hr class="mb-3">
+                            <div class="col">
+                                <label for="cloud">Anda sering menyimpan file/dokumen di layanan Cloud, seperti Google Drive contohnya? </label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="use_cloud" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="use_cloud" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="komputer">Apakah anda pengguna PowerApps pada layanan O365?</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="use_powerapps" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="use_powerapps" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="komputer">Anda adalah pengguna aplikasi PowerBI?</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="use_powerbi" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="use_powerbi" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+
+                            <!-- Pertanyaan baru -->
+                            <div class="col">
+                                <label for="macro">Anda banyak menggunakan macro, complex formula dan VBA pada MS. Excel?</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="use_macro" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="use_macro" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label for="kpc_mail">Anda menggunakan akses email KPC pada mobile phone pribadi?</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="kpc_mail" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="kpc_mail" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label for="vpn">Anda pengguna layanan VPN KPC?</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="ya" name="vpn_user" value="Ya" required> <label for="ya">Ya</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="tidak" name="vpn_user" value="Tidak"> <label for="tidak">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label for="o365">Seberapa jauh pengetahuan/pengalaman Anda mengenai Office 365?</label>
+                                <select class="custom-select" name="paham_o365" id="paham_o365">
+                                    <option value="Paham">Paham</option>
+                                    <option value="Cukup">Cukup Paham</option>
+                                    <option value="Belum">Belum Paham</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

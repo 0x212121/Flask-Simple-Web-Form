@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Assessment</title>
+    
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/dataTables.buttons.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script> -->
+
+    <script src="static/ajax/jszip.min.js"></script>
+    <script src="static/ajax/pdfmake.min.js"></script>
+    <script src="static/ajax/vfs_fonts.js"></script>
+    <script src="static/ajax/buttons.html5.min.js"></script>
+    <script src="static/ajax/buttons.print.min.js"></script>
+
+    <link rel="stylesheet" href="static/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="static/css/buttons.dataTables.min.css">
+
+    <style type="text/css">
+    html, body {
+        font-size: 14px !important;
+        background: url('static/bg.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('.table-paginate').dataTable({
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel'
+                ],
+                "lengthMenu": [25,50,100,500]
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container" style="margin: 2em auto; width: 80%;">
+        <div class="row" style="width: 100%;">
+            <table id="dataTable" class="display table-paginate" style="width: 100%; margin: 0px auto;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Badge No.</th>
+                        <th>Hostname</th>
+                        <th>Use Mobile</th>
+                        <th>Use Cloud</th>
+                        <th>Sharing file</th>
+                        <th>Use Powerapp</th>
+                        <th>Use PowerBI</th>
+                        <th>Use Macro</th>
+                        <th>Mobile Mail</th>
+                        <th>VPN</th>
+                        <th>Paham O365</th>
+                        <th>Result</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>{{item[4]}}</td>
+                        <td>{{item[5]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[7]}}</td>
+                        <td>{{item[8]}}</td>
+                        <td>{{item[9]}}</td>
+                        <td>{{item[10]}}</td>
+                        <td>{{item[11]}}</td>
+                        <td>{{item[12]}}</td>
+                        <td>{{item[13]}}</td>
+                        <td>{{item[14]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

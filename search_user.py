@@ -5,5 +5,3 @@ def search_user(token, logon_name):
 
     res = requests.get(url)
     print(res.text)
-
-search_user("176bac1d-ff0b-4a02-b319-2367cd9c51b7", "IK")

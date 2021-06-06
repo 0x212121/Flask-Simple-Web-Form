@@ -15,14 +15,13 @@
 <body>
     {% if no_logon == True %}
     <script>
-        alert("Logon Name tidak ada. Silahkan tuliskan dengan benar!");
+        alert("Logon Name tidak ditemukan. Silahkan tuliskan dengan benar!");
     </script>
     {% endif %}
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <!-- Sebelum memulai assessment silahkan masukkan nama dan nomor PC yang anda gunakan -->
                     <div class="wrapper">
                         <div class="wrapper2">
                             <form action="/assessment" method="POST">
@@ -31,12 +30,10 @@
                                 </div>
                                 <div class="col">
                                     {% with messages = get_flashed_messages() %}
-                                    {% if messages %}
-                                    
+                                    {% if messages %}                                  
                                         {% for message in messages %}
                                         <div class="flashes alert alert-warning" role="alert">{{ message }}</div>
                                         {% endfor %}
-                                    
                                     {% endif %}
                                     {% endwith %}
                                     {% block body %}{% endblock %}
@@ -54,7 +51,7 @@
                                     <label for="ipaddr">IP address: {{ ipa }}</label>
                                 </div>
                                 <div class="col">
-                                    <label>Sebelum lanjut ke assessment sebaiknya anda membaca dahulu tentang O365 di link <a href="/about">berikut</a></label>
+                                    <label>Sebelum lanjut ke assessment sebaiknya anda membaca dahulu tentang O365 di link <a href="/about" target="_blank">berikut</a></label>
                                 </div>
                                 <div class="col" >
                                     <button class="btn btn-primary" type="submit">Submit</button>

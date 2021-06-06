@@ -32,23 +32,17 @@ def assessment():
             if (is_duplicate):
                 flash('Username sudah digunakan untuk menginput data')
                 errors = True
-                # return redirect(url_for('index'))
-            form_host = request.form["hostname"].upper()
-            badge = request.form["badge"]
-            # print(f"nama: {form_name}")
-            pc_model = checkhostname(form_host)
         except:
-            # no_logon_name = True
             flash('Logon username salah, silahkan periksa kembali :)')
             errors = True
-            # return redirect(url_for('index'))
     elif request.method == "GET":
         return redirect(url_for('index'))
 
-    # Check duplicate hostname saat input
+    badge = request.form["badge"]
+    form_host = request.form["hostname"].upper()
+    pc_model = checkhostname(form_host)
     cur = mysql.connection.cursor()
     is_duplicate = cur.execute(f"SELECT * FROM results WHERE hostname = '{form_host}'")
-    # print(f"is_duplicate: {is_duplicate}")
     if (is_duplicate):
         flash('Hostname sudah ada di database')
         errors = True
@@ -81,12 +75,14 @@ def result():
 
         results = calculate.calc(grouped)
         cur = mysql.connection.cursor()
-        cur.execute(""" INSERT INTO results
-        (fullname, hostname, badge, use_mobile, sharing_file, use_cloud, use_powerapps,
-        use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, 
-        %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
-        use_powerapps, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, results))
-        mysql.connection.commit()
+        is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{name}'")
+        if not is_duplicate:
+            cur.execute(""" INSERT INTO results
+            (fullname, hostname, badge, use_mobile, sharing_file, use_cloud, use_powerapps,
+            use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, 
+            %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
+            use_powerapps, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, results))
+            mysql.connection.commit()
 
         return render_template('result.html', use_officex = results)
     elif request.method == "GET":

@@ -2,8 +2,8 @@ def calc(grouped):
     point = 0
 
     #check type PC
-    if grouped[9] == "HP Compaq Elite 8300 USDT" or grouped[8] == "HP Compaq Elite 8200 USDT":
-        return "Tipe PC tidak support"
+    if grouped[9] == "PC DC8300 USDT" or grouped[8] == "PC DC 8200 USDT":
+        return "PC tidak support"
 
     #use_office
     if grouped[0] == 'Ya':

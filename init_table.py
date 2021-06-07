@@ -43,5 +43,5 @@ def drop_table():
     db_cursor = db_connection.cursor()
     db_cursor.execute("DROP TABLE results")
 
-# drop_table()
+drop_table()
 create_table()

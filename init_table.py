@@ -14,7 +14,7 @@ def create_table():
     db_cursor.execute(''' CREATE TABLE results
     (
         id int primary key not null AUTO_INCREMENT, 
-        fullname varchar(33) not null, 
+        fullname varchar(64) not null, 
         badge varchar(10) not null, 
         hostname varchar(15) not null, 
         use_mobile varchar(12),

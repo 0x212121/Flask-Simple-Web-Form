@@ -1,10 +1,10 @@
 from werkzeug.exceptions import RequestEntityTooLarge
-from templates.get_username import get_username
 from check_hostname import checkhostname
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from waitress import serve
 import calculate
+import get_username as getuser
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
@@ -26,10 +26,10 @@ def assessment():
         errors = False
         try:
             name = request.form["name"]
-            form_name = get_username(name)
+            form_name = getuser.get_username(name)
             cur = mysql.connection.cursor()
             is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{form_name}'")
-            if (is_duplicate):
+            if (is_duplicate > 0):
                 flash('Username sudah digunakan untuk menginput data')
                 errors = True
         except:
@@ -46,7 +46,6 @@ def assessment():
     if (is_duplicate):
         flash('Hostname sudah ada di database')
         errors = True
-        # return redirect(url_for('index'))
     if (errors):
         return redirect(url_for('index'))
     
@@ -102,4 +101,4 @@ def data():
 
 if __name__== '__main__':
     # app.run(debug=True)
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=5000, threads=4)

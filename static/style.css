@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("/static/fonts/Roboto-Medium.ttf");
+}
+
 .col {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -12,7 +17,7 @@
 } */
 
 html, body {
-    font-size: 16px !important;
+    font-size: 16px;
     color: #fafafa;
     background: url('bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -20,6 +25,11 @@ html, body {
    -o-background-size: cover;
    background-size: cover;
    background-position: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300;
 }
 
 .custom-select {
@@ -54,20 +64,20 @@ html, body {
     height: 100%;
     overflow: hidden;
     border-radius: 10px;
-    background-color: blueviolet;
+    background-color: #cb3737;
     position: relative;
 }
 
 .wrapper2 {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 0px;
-    background-color: whitesmoke;
-    margin: 10px auto;
+    background-color: #fafafa;
+    margin: 1em auto;
     position: relative;
-    color: #0a0a0a;
-    padding: 1em;
+    color: #231e23;
+    padding: 1em 1em 0 1em;
 }
 
 
@@ -110,8 +120,21 @@ th {
     text-align: center;
     font-size: 1.2rem;
     vertical-align: middle;
+    background-color: #007bff;
 }
 
 .table {
     margin-top: 3rem;
+}
+
+.btn.btn-primary {
+    color: #fafafa;
+    background-color: #ee6f57;
+    border-color: #ee6f57;
+}
+
+.btn.btn-primary:hover {
+    color: #fafafa;
+    background-color: #cb3737;
+    border-color: #cb3737;
 }

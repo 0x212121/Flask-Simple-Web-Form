@@ -1,10 +1,10 @@
-from werkzeug.exceptions import RequestEntityTooLarge
-from check_hostname import checkhostname
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from waitress import serve
+from filtering import filter_badge, filter_hostname, filter_type
+from get_username import get_username
 import calculate
-import get_username as getuser
+import re
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
@@ -26,30 +26,42 @@ def assessment():
         errors = False
         try:
             name = request.form["name"]
-            form_name = getuser.get_username(name)
+            re_name = re.match("^[a-zA-Z]*$", name)
+            if re_name is not None:
+                form_name = get_username(name)
             cur = mysql.connection.cursor()
             is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{form_name}'")
             if (is_duplicate > 0):
-                flash('Username sudah digunakan untuk menginput data')
+                flash('Username sudah digunakan untuk menginput data!')
                 errors = True
         except:
             flash('Logon username salah, silahkan periksa kembali :)')
             errors = True
+            
+        badge = request.form["badge"].upper()
+        form_host = request.form["hostname"].upper()
+        filter_host = filter_hostname(form_host)
+        check_badge = filter_badge(badge)
+        if check_badge is None:
+            flash('Format badge number salah!')
+            errors = True
+        if filter_host is None:
+            flash('Format hostname salah!')
+            errors = True
+            
+        pc_model = filter_type(form_host)
+        cur = mysql.connection.cursor()
+        is_duplicate = cur.execute(f"SELECT * FROM results WHERE hostname = '{form_host}'")
+        if (is_duplicate):
+            flash('Hostname sudah ada di database!')
+            errors = True
+        if (errors):
+            return redirect(url_for('index'))
+        
+        return render_template("assessment.html", hostname=form_host, name=form_name, badge=badge, type_pc=pc_model)
     elif request.method == "GET":
         return redirect(url_for('index'))
-
-    badge = request.form["badge"]
-    form_host = request.form["hostname"].upper()
-    pc_model = checkhostname(form_host)
-    cur = mysql.connection.cursor()
-    is_duplicate = cur.execute(f"SELECT * FROM results WHERE hostname = '{form_host}'")
-    if (is_duplicate):
-        flash('Hostname sudah ada di database')
-        errors = True
-    if (errors):
-        return redirect(url_for('index'))
-    
-    return render_template("assessment.html", hostname=form_host, name=form_name, badge=badge, type_pc=pc_model)
+        # return render_template("assessment.html")
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
@@ -101,4 +113,4 @@ def data():
 
 if __name__== '__main__':
     # app.run(debug=True)
-    serve(app, host='0.0.0.0', port=5000, threads=4)
+    serve(app, host='0.0.0.0', port=5000, threads=8)

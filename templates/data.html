@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Assessment</title>
     <link rel="shortcut icon" href="static/favicon.ico">
-    <script src="static/js/jquery.min.js"></script>
+    <!-- <script src="static/ajax/jquery-3.6.0.min.js"></script>
     <script src="static/js/jquery.dataTables.min.js"></script>
     <script src="static/js/dataTables.buttons.min.js"></script>
     <script src="static/ajax/jszip.min.js"></script>
@@ -18,6 +18,25 @@
     <link rel="stylesheet" href="static/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="static/css/buttons.dataTables.min.css">
 
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/popper.min.js"></script>
+    
+    <script src="static/js/bootstrap.min.js"></script> -->
+    <script src="static/js/jquery-3.5.1.js"></script>
+    <script src="static/datatables/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/datatables/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="static/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="static/css/buttons.dataTables.min.css">
+
+    <script src="static/ajax/jszip.min.js"></script>
+    <script src="static/ajax/pdfmake.min.js"></script>
+    <script src="static/js/dataTables.buttons.min.js"></script>
+    <script src="static/ajax/vfs_fonts.js"></script>
+    <script src="static/ajax/buttons.html5.min.js"></script>
+    <script src="static/ajax/buttons.print.min.js"></script>
+
+
     <style type="text/css">
     html, body {
         font-size: 14px !important;
@@ -27,16 +46,23 @@
         -o-background-size: cover;
         background-size: cover;
         background-position: center;
+        color: #0a0a0a;
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1500px; 
+        }
     }
     </style>
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function () {
-            $('.table-paginate').dataTable({
+            $('#dataTable').dataTable({
                 dom: 'lBfrtip',
-                buttons: [
-                    'csv', 'excel'
-                ],
+                // buttons: [
+                //     'csv', 'excel'
+                // ],
                 "lengthMenu": [25,50,100,500]
             });
         });
@@ -45,7 +71,7 @@
 <body>
     <div class="container" style="margin: 2em auto; width: 80%;">
         <div class="row" style="width: 100%;">
-            <table id="dataTable" class="display table-paginate" style="width: 100%; margin: 0px auto;">
+            <table id="dataTable" class="table table-striped table-bordered table-dark" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>

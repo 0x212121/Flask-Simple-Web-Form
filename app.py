@@ -26,9 +26,9 @@ def assessment():
         errors = False
         try:
             name = request.form["name"]
-            re_name = re.match("^[a-zA-Z]*$", name)
-            if re_name is not None:
-                form_name = get_username(name)
+            # re_name = re.match("^[a-zA-Z0-9]*$", name)
+            # if re_name is not None:
+            form_name = get_username(name)
             cur = mysql.connection.cursor()
             is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{form_name}'")
             if (is_duplicate > 0):
@@ -99,6 +99,10 @@ def result():
     elif request.method == "GET":
         return redirect(url_for('index'))
 
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorial.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -112,5 +116,5 @@ def data():
     return render_template('data.html', data=data)
 
 if __name__== '__main__':
-    # app.run(debug=True)
-    serve(app, host='0.0.0.0', port=5000, threads=8)
+    app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=5000, threads=4)

@@ -1,0 +1,24 @@
+questionnaire
+
+1. Menggunakan aplikasi Microsoft Office di mobile phone? done
+- Jarang
+- Kadang-Kadang
+- Sering
+- Tidak Pernah
+
+2. Sharing/kolaborasi dalam editing file dengan rekan kerja? done
+- Jarang
+- Kadang-Kadang
+- Sering
+- Tidak Pernah
+3. Menyimpan dokumen pribadi atau perusahaan pada layanan Cloud, seperti Google Drive atau One Drive? done
+- Jarang
+- Kadang-Kadang
+- Sering
+- Tidak Pernah
+4. Membuat form/survey secara online menggunakan layanan Google Drive atau Microsoft Forms? done
+- Jarang
+- Kadang-Kadang
+- Sering
+- Tidak Pernah
+

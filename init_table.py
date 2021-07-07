@@ -19,8 +19,9 @@ def create_table():
         hostname varchar(15) not null, 
         use_mobile varchar(12),
         sharing_file varchar(15),
-        use_cloud varchar(5),
-        use_powerapps varchar (5),
+        use_cloud varchar(15),
+        onlineform varchar (15),
+        registered varchar (5),
         use_powerbi varchar (5),
         use_macro varchar (5), 
         kpc_mail varchar (5), 
@@ -31,17 +32,13 @@ def create_table():
     ) 
     ''')
 
-# def insert_table():
-#     db_cursor = db_connection.cursor()
-
-#     db_cursor.execute(''' 
-#     INSERT into results (name, hostname, use_office, use_smartphone, sharing_filereview_docs, outside)
-#     VALUES ('')
-#     ''')
-
 def drop_table():
-    db_cursor = db_connection.cursor()
-    db_cursor.execute("DROP TABLE results")
+    try:
+        db_cursor = db_connection.cursor()
+        db_cursor.execute("DROP TABLE results")
+        print("Berhasil menghapus tabel")
+    except:
+        print("Gagal menghapus table")
 
 drop_table()
 create_table()

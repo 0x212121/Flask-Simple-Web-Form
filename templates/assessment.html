@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment Form</title>
+    <title>Form Kuesioner</title>
     <link rel="shortcut icon" href="static/favicon.ico">
     <link rel="stylesheet" href="static/style.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
@@ -40,7 +40,7 @@
                             <form action="/result" method="POST">
                                 <div class="col" style="text-align: center;">
                                     <label for="title">
-                                        <h1>Assessment Office 365</h1>
+                                        <h1>Kuesioner Microsoft 365</h1>
                                     </label>
                                 </div>
                                 <div class="col">
@@ -61,7 +61,7 @@
                                 </div>
                                 <hr class="mb-3">
                                 <div class="col">
-                                    <label for="komputer">Seberapa sering anda menggunakan aplikasi Office di mobile
+                                    <label for="komputer">Seberapa sering anda menggunakan aplikasi Microsoft Office di mobile
                                         phone?</label>
                                     <select class="custom-select" name="use_mobile" id="use_mobile" required>
                                         <option disabled selected value> -- select an option -- </option>
@@ -70,7 +70,6 @@
                                         <option value="Sering">Sering</option>
                                         <option value="Tidak Pernah">Tidak Pernah</option>
                                     </select>
-                                    <!-- <input type="hidden" id="hdn_test" name="hdn_test" /> -->
                                 </div>
                                 <div class="col">
                                     <label for="komputer">Seberapa sering Anda melakukan <i>sharing</i>/kolaborasi dalam
@@ -85,28 +84,38 @@
                                 </div>
                                 <hr class="mb-3">
                                 <div class="col">
-                                    <label for="cloud">Anda sering menyimpan file/dokumen di layanan Cloud, seperti
-                                        Google Drive contohnya? </label>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="ya" name="use_cloud" value="Ya" required> <label
-                                            for="ya">Ya</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="tidak" name="use_cloud" value="Tidak"> <label
-                                            for="tidak">Tidak</label>
-                                    </div>
+                                    <label for="cloud">Anda sering menyimpan dokumen pribadi pada layanan Cloud, seperti Google Drive atau One Drive? </label>
+                                    <select class="custom-select" name="use_cloud" id="use_cloud" required>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Jarang">Jarang</option>
+                                        <option value="Kadang">Kadang-kadang</option>
+                                        <option value="Sering">Sering</option>
+                                        <option value="Tidak Pernah">Tidak Pernah</option>
+                                    </select>
                                 </div>
                                 <div class="col">
-                                    <label for="komputer">Apakah anda pengguna PowerApps pada layanan O365?</label>
+                                    <label for="onlineform">Anda membuat form/survey secara online menggunakan layanan Google Drive atau Microsoft Forms?</label>
+                                    <select class="custom-select" name="onlineform" id="onlineform" required>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Jarang">Jarang</option>
+                                        <option value="Kadang">Kadang-kadang</option>
+                                        <option value="Sering">Sering</option>
+                                        <option value="Tidak Pernah">Tidak Pernah</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label for="registered">Apakah anda pernah mendaftarkan diri untuk membuat akun Microsoft?</label>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="ya" name="use_powerapps" value="Ya" required> <label
+                                        <input type="radio" id="ya" name="registered" value="Ya" required> <label
                                             for="ya">Ya</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="tidak" name="use_powerapps" value="Tidak"> <label
+                                        <input type="radio" id="tidak" name="registered" value="Tidak"> <label
                                             for="tidak">Tidak</label>
                                     </div>
                                 </div>
+
                                 <div class="col">
                                     <label for="komputer">Anda adalah pengguna aplikasi PowerBI?</label>
                                     <div class="custom-control custom-radio">
@@ -159,8 +168,7 @@
                                 </div>
 
                                 <div class="col">
-                                    <label for="o365">Seberapa jauh pengetahuan/pengalaman Anda mengenai Office
-                                        365?</label>
+                                    <label for="o365">Seberapa jauh pengetahuan/pengalaman Anda mengenai Office 365?</label>
                                     <select class="custom-select" name="paham_o365" id="paham_o365" required>
                                         <option disabled selected value> -- select an option -- </option>
                                         <option value="Belum">Belum Paham</option>
@@ -184,7 +192,5 @@
     <script src="static/ajax/jquery-3.6.0.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/protect.js"></script>
-
 </body>
-
 </html>

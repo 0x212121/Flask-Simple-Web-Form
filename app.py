@@ -26,8 +26,6 @@ def assessment():
         errors = False
         try:
             name = request.form["name"]
-            # re_name = re.match("^[a-zA-Z0-9]*$", name)
-            # if re_name is not None:
             form_name = get_username(name)
             cur = mysql.connection.cursor()
             is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{form_name}'")
@@ -81,9 +79,11 @@ def result():
         kpc_mail = request.form['kpc_mail']
         vpn_user = request.form['vpn_user']
         paham_o365 = request.form['paham_o365']
+        mail = request.form['mail']
+        cloud_serv = request.form['cloud_serv']
 
         grouped = [use_mobile, sharing, use_cloud, onlineform, registered,
-        use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, type_pc]
+        use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, type_pc]
 
         results = calculate.calc(grouped)
         cur = mysql.connection.cursor()
@@ -91,9 +91,9 @@ def result():
         if not is_duplicate:
             cur.execute(""" INSERT INTO results
             (fullname, hostname, badge, use_mobile, sharing_file, use_cloud, onlineform, registered,
-            use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
-            onlineform, registered, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, results))
+            use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,
+            %s, %s, %s, %s, %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
+            onlineform, registered, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, results))
             mysql.connection.commit()
 
         return render_template('result.html', use_officex = results)
@@ -117,5 +117,5 @@ def data():
     return render_template('data.html', data=data)
 
 if __name__== '__main__':
-    app.run(debug=True)
-    # serve(app, host='0.0.0.0', port=5000, threads=4)
+    #app.run(debug=True)
+    serve(app, host='0.0.0.0', port=5500, threads=4)

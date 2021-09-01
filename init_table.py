@@ -27,6 +27,8 @@ def create_table():
         kpc_mail varchar (5), 
         vpn_user varchar (5), 
         paham_o365 varchar(10),
+        mail varchar(20),
+        cloud_serv varchar(24),
         result varchar(24) not null,
         `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     ) 

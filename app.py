@@ -69,9 +69,7 @@ def result():
         badge = request.form['badge']
         type_pc = request.form['type-pc']
 
-        use_mobile = request.form['use_mobile']
         sharing = request.form['sharing_file']
-        use_cloud = request.form['use_cloud']
         onlineform = request.form['onlineform']
         registered = request.form['registered']
         use_powerbi = request.form['use_powerbi']
@@ -82,7 +80,7 @@ def result():
         mail = request.form['mail']
         cloud_serv = request.form['cloud_serv']
 
-        grouped = [use_mobile, sharing, use_cloud, onlineform, registered,
+        grouped = [sharing, onlineform, registered,
         use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, type_pc]
 
         results = calculate.calc(grouped)
@@ -90,9 +88,9 @@ def result():
         is_duplicate = cur.execute(f"SELECT * FROM results WHERE fullname = '{name}'")
         if not is_duplicate:
             cur.execute(""" INSERT INTO results
-            (fullname, hostname, badge, use_mobile, sharing_file, use_cloud, onlineform, registered,
+            (fullname, hostname, badge, sharing_file, onlineform, registered,
             use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, result) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s, %s, %s, %s, %s)""", (name, hostname, badge, use_mobile, sharing, use_cloud,
+            %s, %s, %s, %s, %s, %s)""", (name, hostname, badge, sharing,
             onlineform, registered, use_powerbi, use_macro, kpc_mail, vpn_user, paham_o365, mail, cloud_serv, results))
             mysql.connection.commit()
 
@@ -117,5 +115,5 @@ def data():
     return render_template('data.html', data=data)
 
 if __name__== '__main__':
-    #app.run(debug=True)
+    # app.run(debug=True)
     serve(app, host='0.0.0.0', port=5500, threads=4)

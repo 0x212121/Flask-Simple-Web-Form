@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kuesioner Office 365</title>
+    <title>Kuesioner Cloud Services</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Form Assessment O365">
@@ -39,7 +39,7 @@
                             <form action="/assessment" method="POST">
                                 <div class="col" style="text-align: center;">
                                     <label for="title">
-                                        <h1>Kuesioner Office 365</h1>
+                                        <h1>Kuesioner Cloud Services</h1>
                                     </label>
                                 </div>
                                 <div class="col">
@@ -63,7 +63,7 @@
                                         placeholder="XXXXXX" title="Isi badge number anda" maxlength="7" required>
                                 </div>
                                 <div class="col">
-                                    <label for="komputer">Computer Name (<a href="/tutorial">Cara Mengetahui Computer Name</a>)</label><input type="text"
+                                    <label for="computer">Computer Name (<a href="/tutorial">Cara Mengetahui Computer Name</a>)</label><input type="text"
                                         class="form-control form-control-lg form-control-borderless" name="hostname"
                                         placeholder="****-****-*****" maxlength="15" required>
                                 </div>
@@ -71,7 +71,7 @@
                                     <label for="ipaddr">IP address: {{ ipa }}</label>
                                 </div>
                                 <div class="col">
-                                    <label>Sebelum melanjutkan ke kuesioner sebaiknya anda membaca dahulu tentang Office 365 pada
+                                    <label>Sebelum melanjutkan ke kuesioner sebaiknya anda membaca dahulu tentang Office 365 dan Google Workspace pada
                                         tautan <a href="/about" target="_blank">berikut</a></label>
                                 </div>
                                 <div class="col">
@@ -87,7 +87,7 @@
 
     {% if no_logon == True %}
     <script>
-        alert("Logon Name tidak ditemukan. Silahkan tuliskan dengan benar!");
+        alert("Logon Name tidak ditemukan, harap periksa kembali");
     </script>
     {% endif %}
 

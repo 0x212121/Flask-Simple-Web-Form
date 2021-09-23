@@ -17,9 +17,7 @@ def create_table():
         fullname varchar(64) not null, 
         badge varchar(10) not null, 
         hostname varchar(15) not null, 
-        use_mobile varchar(12),
         sharing_file varchar(15),
-        use_cloud varchar(15),
         onlineform varchar (15),
         registered varchar (5),
         use_powerbi varchar (5),
@@ -33,6 +31,7 @@ def create_table():
         `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     ) 
     ''')
+
 
 def drop_table():
     try:

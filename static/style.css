@@ -1,21 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: "Roboto";
     src: url("/static/fonts/Roboto-Medium.ttf");
 }
 
 .col {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .ftco-section {
     padding: 4em 0;
 }
-
-
-/* .table-container {
-    max-width: 90%;
-} */
 
 html,
 body {
@@ -54,6 +53,10 @@ label {
     padding-left: 0;
 }
 
+form {
+    padding: 20px 20px 0px 20px;
+}
+
 .form-control {
     height: auto;
     background: #fff;
@@ -66,9 +69,26 @@ label {
     box-shadow: 0px 8px 19px -13px rgba(0, 0, 0, 0.09) !important;
 }
 
+p {
+    margin-bottom: 0px;
+}
+
+.p-about {
+    margin-top: 20px;
+    text-indent: 30px;
+    text-align: justify;
+}
+
+.img-cloud {
+    height: 192.5px;
+    width: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
 .wrapper {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     overflow: hidden;
     border-radius: 10px;
     background-color: #cb3737;
@@ -77,14 +97,21 @@ label {
 
 .wrapper2 {
     width: 100%;
-    height: 100%;
-    /* overflow: hidden; */
+    height: inherit;
     border-radius: 0px;
     background-color: #fafafa;
-    margin: 1em auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
     position: relative;
     color: #231e23;
-    padding: 1em 1em 0 1em;
+}
+
+.img-wrapper {
+    margin-bottom: 12px;
+}
+
+.img-cloud {
+    border-radius: 8px;
 }
 
 .img {

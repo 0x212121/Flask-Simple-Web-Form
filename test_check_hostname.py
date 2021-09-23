@@ -1,6 +1,6 @@
 import unittest
 from unittest.main import main
-from check_hostname import checkhostname
+from filtering import filter_hostname as checkhostname
 
 class TestCheckHostname(unittest.TestCase):
 

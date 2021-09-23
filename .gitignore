@@ -1,2 +1,3 @@
-workstation_type.csv
+workstation_type*.csv
 search_user.py
+__pycache__

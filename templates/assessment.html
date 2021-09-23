@@ -34,13 +34,16 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
+                    <div class="img-wrapper">
+                        <img src="/static/cloud.jpg" alt="cloud" width="500px" class="img-cloud">
+                    </div>
                     <!-- Sebelum memulai assessment silahkan masukkan nama dan nomor PC yang anda gunakan -->
                     <div class="wrapper">
                         <div class="wrapper2">
                             <form action="/result" method="POST">
                                 <div class="col" style="text-align: center;">
                                     <label for="title">
-                                        <h1>Kuesioner Microsoft 365</h1>
+                                        <h1>Kuesioner Cloud Services</h1>
                                     </label>
                                 </div>
                                 <div class="col">
@@ -61,33 +64,10 @@
                                 </div>
                                 <hr class="mb-3">
                                 <div class="col">
-                                    <label for="komputer">Seberapa sering anda menggunakan aplikasi Microsoft Office di mobile
-                                        phone?</label>
-                                    <select class="custom-select" name="use_mobile" id="use_mobile" required>
-                                        <option disabled selected value> -- select an option -- </option>
-                                        <option value="Jarang">Jarang</option>
-                                        <option value="Kadang">Kadang-kadang</option>
-                                        <option value="Sering">Sering</option>
-                                        <option value="Tidak Pernah">Tidak Pernah</option>
-                                    </select>
-                                </div>
-                                <div class="col">
                                     <label for="komputer">Seberapa sering Anda melakukan <i>sharing</i>/kolaborasi dalam
                                         editing file dengan rekan kerja Anda?</label>
                                     <select class="custom-select" name="sharing_file" id="sharing_file" required>
                                         <option disabled selected value> -- select an option -- </option>
-                                        <option value="Jarang">Jarang</option>
-                                        <option value="Kadang">Kadang-kadang</option>
-                                        <option value="Sering">Sering</option>
-                                        <option value="Tidak Pernah">Tidak Pernah</option>
-                                    </select>
-                                </div>
-                                <hr class="mb-3">
-                                <div class="col">
-                                    <label for="cloud">Anda sering menyimpan dokumen pribadi pada layanan Cloud, seperti Google Drive atau One Drive? </label>
-                                    <select class="custom-select" name="use_cloud" id="use_cloud" required>
-                                        <option disabled selected value> -- select an option -- </option>
-                                        <option value="Jarang">Jarang</option>
                                         <option value="Kadang">Kadang-kadang</option>
                                         <option value="Sering">Sering</option>
                                         <option value="Tidak Pernah">Tidak Pernah</option>
@@ -95,10 +75,29 @@
                                 </div>
 
                                 <div class="col">
-                                    <label for="onlineform">Anda membuat form/survey secara online menggunakan layanan Google Drive atau Microsoft Forms?</label>
+                                    <label for="office_mobile">Frekuensi penggunaan Microsoft Office pada mobile phone?</label>
+                                    <select class="custom-select" name="office_mobile" id="office_mobile" required>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Kadang">Kadang-kadang</option>
+                                        <option value="Sering">Sering</option>
+                                        <option value="Tidak Pernah">Tidak Pernah</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label for="gapps_mobile">Frekuensi penggunaan Google Apps pada mobile phone?</label>
+                                    <select class="custom-select" name="gapps_mobile" id="gapps_mobile" required>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Kadang">Kadang-kadang</option>
+                                        <option value="Sering">Sering</option>
+                                        <option value="Tidak Pernah">Tidak Pernah</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label for="onlineform">Anda membuat form/survey secara online menggunakan layanan Google Forms atau Microsoft Forms?</label>
                                     <select class="custom-select" name="onlineform" id="onlineform" required>
                                         <option disabled selected value> -- select an option -- </option>
-                                        <option value="Jarang">Jarang</option>
                                         <option value="Kadang">Kadang-kadang</option>
                                         <option value="Sering">Sering</option>
                                         <option value="Tidak Pernah">Tidak Pernah</option>
@@ -127,6 +126,8 @@
                                         <option value="Never">Belum Pernah Menggunakan</option>
                                     </select>
                                 </div>
+
+                                <hr class="mb-3">
 
                                 <div class="col">
                                     <label for="registered">Apakah anda pernah mendaftarkan diri untuk membuat akun Microsoft?</label>
@@ -192,8 +193,32 @@
                                 </div>
 
                                 <div class="col">
+                                    <label for="vpn">Anda adalah pengguna Google Data Studio?</label>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="ya" name="gstudio" value="Ya" required> <label
+                                            for="ya">Ya</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="tidak" name="gstudio" value="Tidak"> <label
+                                            for="tidak">Tidak</label>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="col">
                                     <label for="o365">Seberapa jauh pengetahuan/pengalaman Anda mengenai Office 365?</label>
                                     <select class="custom-select" name="paham_o365" id="paham_o365" required>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Belum">Belum Paham</option>
+                                        <option value="Cukup">Cukup Paham</option>
+                                        <option value="Paham">Paham</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label for="google">Seberapa jauh pengetahuan/pengalaman Anda mengenai Google Services?</label>
+                                    <select class="custom-select" name="paham_google" id="paham_google" required>
                                         <option disabled selected value> -- select an option -- </option>
                                         <option value="Belum">Belum Paham</option>
                                         <option value="Cukup">Cukup Paham</option>
